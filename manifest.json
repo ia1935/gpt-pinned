@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "ChatGPT Conversation Pinner",
+  "version": "1.0",
+  "description": "Pin important ChatGPT conversations for easy access",
+  "icons": {
+    "48": "icons/pin-48.png",
+    "96": "icons/pin-96.png"
+  },
+  "permissions": [
+    "storage",
+    "*://chat.openai.com/*",
+    "*://chatgpt.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://chat.openai.com/*", "*://chatgpt.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chatgpt-pinner@imranahmed.extension",
+      "strict_min_version": "57.0"
+    }
+  }
+}
